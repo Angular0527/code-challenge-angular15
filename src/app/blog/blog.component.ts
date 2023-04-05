@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./blog.component.sass']
 })
 export class BlogComponent {
-
+  tabList = [
+    {title: 'Local'},
+    {title: 'Remote'},
+    {title: 'Remote +'}
+  ];
 }
