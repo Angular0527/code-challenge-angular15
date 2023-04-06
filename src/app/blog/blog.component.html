@@ -44,17 +44,22 @@
   </span>
 
   <span class="p-float-label modal-label">
-    <input pInputText id="desc" [(ngModel)]="description" required minlength="1" maxlength="100" />
+    <input pInputText id="desc" [(ngModel)]="description" />
     <label htmlFor="desc">Description</label>
   </span>
 
   <span class="p-float-label modal-label">
-    <input pInputText id="content" [(ngModel)]="content" required minlength="1" maxlength="500"/>
+    <input pInputText id="content" [(ngModel)]="content" />
     <label htmlFor="content">Content</label>
   </span>
 
   <span class="p-float-label modal-label">
-    <input pInputText id="urlLink" [(ngModel)]="urlLink" required minlength="1" maxlength="1000"/>
+    <input pInputText id="urlLink" [(ngModel)]="url_link" />
     <label htmlFor="urlLink">Url Link</label>
   </span>
+
+  <div class="option-area">
+    <p-button icon="pi pi-save" label="Save" (onClick)="addItem()"></p-button>
+    <p-button icon="pi pi-times" label="Cancel" (onClick)="hideModal()"></p-button>
+  </div>
 </p-dialog>

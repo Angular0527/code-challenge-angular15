@@ -4,10 +4,8 @@ export class BlogData {
     url?: string;
     publishedAt?: string;
     source?: any;
-    
     content: string;
     image?: string;
-
 
     constructor(){
         this.title='';
