@@ -42,6 +42,11 @@ export class BlogComponent implements OnInit {
   }
 
   addItem() {
+    if (this.editable) {
+      const index = this.list_items.findIndex(x => x.title === this.title && x.content === this.content);
+      this.list_items.splice(index, 1);
+    }
+
     this.list_items.push({
       title: this.title,
       content: this.content,
@@ -61,10 +66,19 @@ export class BlogComponent implements OnInit {
   }
 
   editModal(item: any) {
+    this.editable = true;
+    this.title = item.title;
+    this.description = item.description;
+    this.content = item.content;
+    this.url_link = item.image;
 
+    this.showModal();
   }
 
   deleteItem(item: any) {
+    const index = this.list_items.findIndex(x => x.title === item.title && x.content === item.content);
+    this.list_items.splice(index, 1);
 
+    localStorage.setItem(this.storage_name, JSON.stringify(this.list_items));
   }
 }
