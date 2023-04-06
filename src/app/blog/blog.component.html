@@ -1,15 +1,60 @@
 <div class="tab-area">
   <p-tabView>
-    <p-tabPanel header="Local">
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <i class="pi pi-desktop"></i>
+        <span class="header-label">Local</span>
+      </ng-template>
 
+      <div>
+        <p-button (click)="showModal()" icon="pi pi-external-link" label="Add Item"></p-button>
+      </div>
     </p-tabPanel>
 
-    <p-tabPanel header="Remote">
+    <p-tabPanel header="Remote" leftIcon="pi-cloud">
+      <ng-template pTemplate="header">
+        <i class="pi pi-cloud"></i>
+        <span class="header-label">Remote</span>
+      </ng-template>
 
+      <p>
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
+        ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Consectetur, adipisci velit, sed quia non numquam eius modi.
+      </p>
     </p-tabPanel>
 
-    <p-tabPanel header="Remote +">
+    <p-tabPanel header="Remote +" leftIcon="pi-cloud">
+      <ng-template pTemplate="header">
+        <i class="pi pi-cloud-upload"></i>
+        <span class="header-label">Remote +</span>
+      </ng-template>
 
+      <p>
+        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa
+        qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.
+      </p>
     </p-tabPanel>
   </p-tabView>
 </div>
+
+<p-dialog header="Add Item" [(visible)]="visible" [style]="{width: '50vw'}" [maximizable]="true" [modal]="true">
+  <span class="p-float-label modal-label">
+    <input pInputText id="title" [(ngModel)]="title" />
+    <label htmlFor="title">Title</label>
+  </span>
+
+  <span class="p-float-label modal-label">
+    <input pInputText id="desc" [(ngModel)]="description" required minlength="1" maxlength="100" />
+    <label htmlFor="desc">Description</label>
+  </span>
+
+  <span class="p-float-label modal-label">
+    <input pInputText id="content" [(ngModel)]="content" required minlength="1" maxlength="500"/>
+    <label htmlFor="content">Content</label>
+  </span>
+
+  <span class="p-float-label modal-label">
+    <input pInputText id="urlLink" [(ngModel)]="urlLink" required minlength="1" maxlength="1000"/>
+    <label htmlFor="urlLink">Url Link</label>
+  </span>
+</p-dialog>

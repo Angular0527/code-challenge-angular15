@@ -4,7 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BlogComponent } from './blog/blog.component';
+import { FormsModule } from '@angular/forms';
 import { TabViewModule } from "primeng/tabview";
+import { ButtonModule } from 'primeng/button';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -14,7 +19,12 @@ import { TabViewModule } from "primeng/tabview";
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TabViewModule
+    FormsModule,
+    TabViewModule,
+    ButtonModule,
+    DialogModule,
+    BrowserAnimationsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]
