@@ -9,6 +9,8 @@ import { DatePipe } from "@angular/common";
   styleUrls: ['./blog.component.sass'],
 })
 export class BlogComponent implements OnInit {
+  storage_name = 'localblog';
+
   visible: boolean = false;
   editable: boolean = false;
 
@@ -21,7 +23,10 @@ export class BlogComponent implements OnInit {
   cmItems: MenuItem[] = [];
 
   ngOnInit(): void {
+    let local_data = localStorage.getItem(this.storage_name) != null ? localStorage.getItem(this.storage_name) : '';
 
+    if (local_data && local_data != '')
+      this.list_items = JSON.parse(local_data != null ? local_data : '');
   }
 
   showModal() {
@@ -45,7 +50,7 @@ export class BlogComponent implements OnInit {
       publishedAt: this.timestampToString(new Date())?.toString()
     });
 
-    localStorage.setItem('localblog', JSON.stringify(this.list_items));
+    localStorage.setItem(this.storage_name, JSON.stringify(this.list_items));
 
     this.hideModal();
   }
@@ -53,5 +58,13 @@ export class BlogComponent implements OnInit {
   timestampToString(date: Date) {
     const datePipeEn = new DatePipe('en-US');
     return datePipeEn.transform(date, 'dd/MM/yyyy HH:mm');
+  }
+
+  editModal(item: any) {
+
+  }
+
+  deleteItem(item: any) {
+
   }
 }
