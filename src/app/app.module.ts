@@ -11,6 +11,7 @@ import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TableModule } from 'primeng/table';
     DialogModule,
     BrowserAnimationsModule,
     InputTextModule,
-    TableModule
+    TableModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,11 +2,13 @@ import { BlogData } from '../models/blog-data';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { DatePipe } from "@angular/common";
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.sass'],
+  providers: [MessageService]
 })
 export class BlogComponent implements OnInit {
   storage_name = 'localblog';
@@ -21,6 +23,8 @@ export class BlogComponent implements OnInit {
 
   list_items: BlogData[] = [];
   cmItems: MenuItem[] = [];
+
+  constructor(private message: MessageService) {}
 
   ngOnInit(): void {
     let local_data = localStorage.getItem(this.storage_name) != null ? localStorage.getItem(this.storage_name) : '';
@@ -58,6 +62,8 @@ export class BlogComponent implements OnInit {
     localStorage.setItem(this.storage_name, JSON.stringify(this.list_items));
 
     this.hideModal();
+
+    this.message.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
   }
 
   timestampToString(date: Date) {
